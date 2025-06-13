@@ -50,6 +50,12 @@
             font-weight: bold;
             color: #333;
         }
+
+        #error {
+            margin-top: 1rem;
+            color: #cc0000;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +66,9 @@
 </form>
 {#if message}
     <p id="result">{message}</p>
+{/if}
+{#if error}
+    <p id="error">{error}</p>
 {/if}
 </body>
 </html>

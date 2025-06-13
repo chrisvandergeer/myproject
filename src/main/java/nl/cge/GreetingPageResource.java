@@ -23,14 +23,18 @@ public class GreetingPageResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance getPage() {
-        return greeting.data("message", null);
+        return greeting.data("message", null).data("error", null);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance postName(@FormParam("name") String name) {
-        GreetingResponse response = greetingService.greet(name);
-        return greeting.data("message", response.message());
+        try {
+            GreetingResponse response = greetingService.greet(name);
+            return greeting.data("message", response.message()).data("error", null);
+        } catch (IllegalArgumentException e) {
+            return greeting.data("message", null).data("error", e.getMessage());
+        }
     }
 }

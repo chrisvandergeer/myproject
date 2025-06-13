@@ -7,6 +7,11 @@ import java.time.LocalTime;
 public class GreetingService {
 
     public GreetingResponse greet(String name) {
+        if (name == null || !name.matches("[A-Za-z\\- ]{2,}")) {
+            throw new IllegalArgumentException(
+                "Name must contain at least 2 characters and may only consist of letters, spaces and '-'"
+            );
+        }
         String partOfDay = calculatePartOfDay();
         String message = "Hello " + name + ", een hele goede " + partOfDay;
         return new GreetingResponse(message);

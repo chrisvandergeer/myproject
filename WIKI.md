@@ -1,18 +1,18 @@
-# Wiki - Overview
+# Wiki - Overzicht
 
-This project is a simple Quarkus application that demonstrates REST and server-side templating.
+Dit project is een eenvoudige Quarkus-applicatie die REST-endpoints en server-side templating demonstreert.
 
-## REST endpoints
+## REST-endpoints
 
-- `GET /hello` returns the plain text message `Hello from Quarkus REST`.
-- `POST /hello` accepts JSON with a `name` field and responds with a JSON greeting. Invalid names result in an error.
-- `GET /greeting` serves an HTML page with a form to submit a name. The page displays the greeting or an error message.
+- `GET /hello` geeft de tekst `Hello from Quarkus REST` terug.
+- `POST /hello` verwacht JSON met een `name`-veld en reageert met een JSON-groet. Ongeldige namen leveren een foutmelding op.
+- `GET /greeting` levert een HTML-pagina met een formulier om een naam in te voeren. De pagina toont de groet of een foutmelding.
 
-## Core components
+## Kernonderdelen
 
-- `GreetingService` validates the provided name, determines the part of the day, and composes the greeting.
-- `GreetingResource` exposes the `/hello` REST endpoints.
-- `GreetingPageResource` renders the `/greeting` HTML page using a Qute template.
-- `GreetingRequest` and `GreetingResponse` are simple records used to transfer data.
+- `GreetingService` valideert de opgegeven naam, bepaalt het deel van de dag en stelt de groet samen.
+- `GreetingResource` stelt de `/hello` REST-endpoints beschikbaar.
+- `GreetingPageResource` rendert de `/greeting` HTML-pagina via een Qute-template.
+- `GreetingRequest` en `GreetingResponse` zijn eenvoudige records om data uit te wisselen.
 
-The service computes whether it is morning, afternoon, or evening based on the server time and includes that in the greeting.
+De service berekent of het ochtend, middag of avond is op basis van de servertijd en verwerkt dat in de groet.

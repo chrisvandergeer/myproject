@@ -63,4 +63,4 @@ Easily start your REST Web Services
 
 ## Wiki
 
-See [WIKI.md](WIKI.md) for a short overview of the project's features.
+Zie [WIKI.md](WIKI.md) voor een kort overzicht van de functionaliteit van dit project.

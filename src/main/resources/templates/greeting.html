@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting</title>
+</head>
+<body>
+<form method="post" action="/greeting">
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Greet</button>
+</form>
+{#if message}
+    <p id="result">{message}</p>
+{/if}
+</body>
+</html>

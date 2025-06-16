@@ -1,6 +1,4 @@
-POST http://localhost:8080/hello
-Content-Type: application/json
+POST http://localhost:8080/greeting
+Content-Type: application/x-www-form-urlencoded
 
-{
-  "name": "Alice"
-}
+name=Alice

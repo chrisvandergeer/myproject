@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
+    <title>Taken</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,15 +54,13 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        #result {
+        table {
+            border-collapse: collapse;
             margin-top: 1rem;
-            font-weight: bold;
-            color: #333;
         }
-        #error {
-            margin-top: 1rem;
-            color: #cc0000;
-            font-weight: bold;
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.5rem 1rem;
         }
     </style>
 </head>
@@ -71,16 +69,30 @@
     <a href="/greeting">Greeting</a>
     <a href="/tasks">Taken</a>
 </div>
-<form method="post" action="/greeting">
-    <label for="name">Name:</label>
-    <input id="name" name="name" type="text" pattern="[A-Za-z\\- ]&#123;2,&#125;" title="Minimaal 2 karakters. Alleen letters, spaties en '-' toegestaan" required>
-    <button type="submit">Greet</button>
+<form method="post" action="/tasks">
+    <label for="name">Naam:</label>
+    <input id="name" name="name" type="text" required>
+    <label for="description">Omschrijving:</label>
+    <input id="description" name="description" type="text" required>
+    <label for="endDate">Einddatum:</label>
+    <input id="endDate" name="endDate" type="date" required>
+    <button type="submit">Voeg taak toe</button>
 </form>
-{#if message}
-    <p id="result">{message}</p>
-{/if}
-{#if error}
-    <p id="error">{error}</p>
+{#if tasks.size > 0}
+<table id="task-list">
+    <thead>
+        <tr><th>Naam</th><th>Omschrijving</th><th>Einddatum</th></tr>
+    </thead>
+    <tbody>
+    {#for task in tasks}
+        <tr>
+            <td>{task.name}</td>
+            <td>{task.description}</td>
+            <td>{task.endDate}</td>
+        </tr>
+    {/for}
+    </tbody>
+</table>
 {/if}
 </body>
 </html>

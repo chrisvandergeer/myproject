@@ -1,4 +1,4 @@
-package nl.cge;
+package nl.cge.greeting;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import java.time.LocalTime;

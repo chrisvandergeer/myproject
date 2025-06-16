@@ -73,7 +73,7 @@
 </div>
 <form method="post" action="/greeting">
     <label for="name">Name:</label>
-    <input id="name" name="name" type="text" pattern="[A-Za-z\\- ]{2,}" title="Minimaal 2 karakters. Alleen letters, spaties en '-' toegestaan" required>
+    <input id="name" name="name" type="text" pattern="[A-Za-z\\- ]&#123;2,&#125;" title="Minimaal 2 karakters. Alleen letters, spaties en '-' toegestaan" required>
     <button type="submit">Greet</button>
 </form>
 {#if message}

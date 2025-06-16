@@ -12,7 +12,7 @@ Dit project is een eenvoudige Quarkus-applicatie die server-side templating demo
 
 - `GreetingService` valideert de opgegeven naam, bepaalt het deel van de dag en stelt de groet samen.
 - `GreetingPageResource` rendert de `/greeting` HTML-pagina via een Qute-template.
-- `TaskService` beheert een eenvoudige in-memory lijst van taken.
+- `TaskService` slaat taken op in een in-memory H2 database.
 - `TaskPageResource` verzorgt het tonen en toevoegen van taken via `/tasks`.
 - `GreetingResponse` is een eenvoudig record om data uit te wisselen.
 

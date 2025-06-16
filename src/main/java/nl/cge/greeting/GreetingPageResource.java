@@ -1,4 +1,4 @@
-package nl.cge;
+package nl.cge.greeting;
 
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;

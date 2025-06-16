@@ -1,4 +1,4 @@
-package nl.cge;
+package nl.cge.greeting;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

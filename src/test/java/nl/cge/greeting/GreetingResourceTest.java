@@ -7,15 +7,18 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 
 @QuarkusTest
-class GreetingPageResourceTest {
+class GreetingResourceTest {
 
     @Test
-    void testGetPage() {
+    void testGetGreeting() {
+        String partOfDay = calculatePartOfDay();
+
         given()
-          .when().get("/greeting")
+          .queryParam("name", "Codex")
+          .when().get("/api/greeting")
           .then()
              .statusCode(200)
-             .body(containsString("<form"));
+             .body("message", containsString("Codex, een hele goede " + partOfDay));
     }
 
     @Test
@@ -23,12 +26,12 @@ class GreetingPageResourceTest {
         String partOfDay = calculatePartOfDay();
 
         given()
-            .contentType("application/x-www-form-urlencoded")
-            .formParam("name", "Codex")
-            .when().post("/greeting")
+            .contentType("application/json")
+            .body("{\"name\":\"Codex\"}")
+            .when().post("/api/greeting")
             .then()
                 .statusCode(200)
-                .body(containsString("Hello Codex, een hele goede " + partOfDay));
+                .body("message", containsString("Codex, een hele goede " + partOfDay));
     }
 
     private String calculatePartOfDay() {

@@ -21,4 +21,12 @@ public class TaskService {
     public List<Task> listTasks() {
         return em.createQuery("from Task", Task.class).getResultList();
     }
+
+    @Transactional
+    public void markDone(Long id) {
+        Task task = em.find(Task.class, id);
+        if (task != null) {
+            task.markDone();
+        }
+    }
 }

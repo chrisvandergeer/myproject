@@ -32,4 +32,12 @@ public class TaskPageResource {
         taskService.addTask(name, description, LocalDate.parse(endDate));
         return tasks.data("tasks", taskService.listTasks());
     }
+
+    @POST
+    @Path("/{id}/gereed")
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance markDone(@PathParam("id") Long id) {
+        taskService.markDone(id);
+        return tasks.data("tasks", taskService.listTasks());
+    }
 }

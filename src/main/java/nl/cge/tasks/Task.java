@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Task {
@@ -15,6 +16,7 @@ public class Task {
     public String name;
     public String description;
     public LocalDate endDate;
+    public LocalDateTime gereedMoment;
 
     public Task() {
     }
@@ -23,5 +25,9 @@ public class Task {
         this.name = name;
         this.description = description;
         this.endDate = endDate;
+    }
+
+    public void markDone() {
+        this.gereedMoment = LocalDateTime.now();
     }
 }

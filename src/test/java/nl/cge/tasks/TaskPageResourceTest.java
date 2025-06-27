@@ -32,4 +32,24 @@ class TaskPageResourceTest {
                 .body(containsString("Beschrijving"))
                 .body(containsString("2030-01-01"));
     }
+
+    @Test
+    void testCompleteTask() {
+        // voeg taak toe
+        given()
+            .contentType("application/x-www-form-urlencoded")
+            .formParam("name", "Taak")
+            .formParam("description", "desc")
+            .formParam("endDate", "2030-01-01")
+            .when().post("/tasks")
+            .then()
+                .statusCode(200);
+
+        // markeer gereed
+        given()
+            .when().post("/tasks/1/gereed")
+            .then()
+                .statusCode(200)
+                .body(containsString("class=\"completed\""));
+    }
 }

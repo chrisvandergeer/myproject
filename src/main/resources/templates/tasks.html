@@ -74,6 +74,9 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        .completed td {
+            text-decoration: line-through;
+        }
     </style>
 </head>
 <body>
@@ -93,14 +96,21 @@
 {#if tasks.size > 0}
 <table id="task-list">
     <thead>
-        <tr><th>Naam</th><th>Omschrijving</th><th>Einddatum</th></tr>
+        <tr><th>Naam</th><th>Omschrijving</th><th>Einddatum</th><th></th></tr>
     </thead>
     <tbody>
     {#for task in tasks}
-        <tr>
+        <tr class="{task.gereedMoment != null ? 'completed' : ''}">
             <td>{task.name}</td>
             <td>{task.description}</td>
             <td>{task.endDate}</td>
+            <td>
+                {#if task.gereedMoment == null}
+                <form method="post" action="/tasks/{task.id}/gereed">
+                    <button type="submit">Gereed</button>
+                </form>
+                {/if}
+            </td>
         </tr>
     {/for}
     </tbody>

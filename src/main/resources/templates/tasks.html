@@ -6,11 +6,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f0f4f8;
+            background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .tabs {
@@ -30,8 +30,9 @@
             background: #fff;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 2rem;
+            width: 320px;
         }
         label,
         input,
@@ -57,10 +58,21 @@
         table {
             border-collapse: collapse;
             margin-top: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            border: 1px solid #ccc;
-            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            padding: 0.75rem 1rem;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
